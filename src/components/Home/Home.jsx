@@ -1,17 +1,15 @@
 import {useState} from 'react';
 import './Home.css';
 import {useSelector, useDispatch } from 'react-redux';
+import Card from '../Card/Card';
 
 const Home = () => {
     
     // const dispatch = useDispatch();
 
-    // const [ findGif, setFindGif ] = useState( '' );
+
     const ourGifs = useSelector(store => store.gifs);
-    // const ourGifs = useSelector( ( store ) => {
-    //     console.log( 'in useSelector store.gifs:', store.gifs );
-    //     return store.gifs
-    // })
+
     console.log('this is ourGifs', ourGifs);
     
     return (
@@ -22,10 +20,28 @@ const Home = () => {
         <div className="input-container">
             <input placeholder="Search gif" type="text"/>
         <button>Submit</button>
-        {/* { JSON.stringify( ourGifs )} */}
+        
         </div>
         <hr />
         <div>
+            {ourGifs.map(gif => {
+                return (
+                    < Card gif={gif}/> 
+            )
+                })}
+        </div>
+
+
+        {/* // { ourGifs.map( ( gif, i ) => {
+//   return (
+//       <div key={ i }>
+//           <img src={ gif.images.original.url } />
+
+//   )      
+// })}       
+            
+        
+        {/* <div>
     
             <table>
                 <thead>
@@ -36,7 +52,7 @@ const Home = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {ourGifs ? ourGifs.type  : <tr><td>Gifs Go here</td></tr>} */}
+                    
                     { ourGifs.map( ( gif, i ) => {
                         return (
                             <tr key={ i }>
@@ -47,7 +63,7 @@ const Home = () => {
                     })}
                 </tbody>
             </table>
-        </div>
+        </div> */}
     </>)
 }
 
