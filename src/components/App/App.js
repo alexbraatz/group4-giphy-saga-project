@@ -11,8 +11,8 @@ function App(props) {
   const getGifs = () => {
     
     axios.get('/gifs').then((response) => {
-      console.log('back from server', response);
-      dispatch({type: 'GET_GIFS', payload: response })
+      console.log('back from server', response.data );
+      dispatch({type: 'GET_GIFS', payload: response.data })
       
     }).catch((error) => {
       console.log(error);

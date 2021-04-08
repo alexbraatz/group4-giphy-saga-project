@@ -12,9 +12,10 @@ const sagaMiddleware = createSagaMiddleware();
 
 const gifs = ( state = [], action ) => {
     console.log( 'in gifs reducer state:', state );
-  if(action.type === 'GET_GIFS') {
-    state = action.payload;
-  }
+    if(action.type === 'GET_GIFS') {
+        // return [ ...state, action.payload ];
+        return state = action.payload;
+    }
 
     return state;
 }
