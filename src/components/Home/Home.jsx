@@ -24,9 +24,11 @@ const Home = () => {
         </div>
         <hr />
         <div>
-            {ourGifs.map(gif => {
+            {ourGifs.map( ( gif, i ) => {
                 return (
-                    < Card gif={gif}/> 
+                    <div key={ i }>
+                    < Card gif={gif}/>
+                    </div>
             )
                 })}
         </div>
