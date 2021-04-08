@@ -37,14 +37,14 @@ const Home = () => {
                 </thead>
                 <tbody>
                     {/* {ourGifs ? ourGifs.type  : <tr><td>Gifs Go here</td></tr>} */}
-                    { ourGifs ? ourGifs.map( ( gif, i ) => {
+                    { ourGifs.map( ( gif, i ) => {
                         return (
                             <tr key={ i }>
                                 <td><img src={ gif.images.original.url } /></td>
-                                <td>{gif.type}</td>
+                                
                             </tr>
                         )
-                    }) : <tr><td>Gifs Go here</td></tr>}
+                    })}
                 </tbody>
             </table>
         </div>
