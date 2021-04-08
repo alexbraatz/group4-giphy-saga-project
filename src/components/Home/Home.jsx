@@ -23,10 +23,10 @@ const Home = () => {
         
         </div>
         <hr />
-        <div>
+        <div className="cardContainer">
             {ourGifs.map( ( gif, i ) => {
                 return (
-                    <div key={ i }>
+                    <div className="card" key={ i }>
                     < Card gif={gif}/>
                     </div>
             )
