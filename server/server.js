@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const gifsRouter = require( './routes/gif.router');
 
 const app = express();
 // App PORT set with production check
@@ -19,6 +20,7 @@ app.use(express.static('build'));
 // Routes
 app.use('/api/favorite', favoriteRouter);
 app.use('/api/category', categoryRouter);
+app.use('/gifs', gifsRouter);
 
 // Listen
 app.listen(PORT, () => {
