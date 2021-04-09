@@ -1,7 +1,7 @@
-import {useState} from 'react';
+import {useState, useEffect } from 'react';
 import './Favorites.css';
 import {useSelector, useDispatch } from 'react-redux';
-import Card from '../Card/Card';
+import CardFavorite from '../CardFavorite/CardFavorite';
 import axios from 'axios';
 
 const Favorites = () => {
@@ -21,9 +21,9 @@ const Favorites = () => {
         })
     }
 
-    // const ourGifs = useSelector(store => store.gifs);
-
-    // console.log('this is ourGifs', ourGifs);
+   useEffect( ()=>{
+        getGifs();
+   }, [])
     
     return (
     <>

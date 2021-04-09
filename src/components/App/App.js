@@ -29,11 +29,11 @@ function App() {
     <div>
       <Router>
 
-        <Route>
+        <Route path="/" exact>
           <Home />
         </Route>
 
-        <Route>
+        <Route path="/favorites" exact>
           <Favorites />
         </Route>
 
