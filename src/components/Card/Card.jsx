@@ -10,35 +10,56 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import StarIcon from '@material-ui/icons/Star';
 import IconButton from '@material-ui/core/IconButton';
+import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
   },
+  star: {
+    color: '#636059',
+    '&:hover': {
+      color: '#04C56B',
+    },
+  },
+  buttonContainer: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    
+  }
 
 });
-// iv
 
 export default function ImgMediaCard({gif}) {
   const classes = useStyles();
   const ourGifs = useSelector(store => store.gifs);
+  
+  
 
-  const runThis = () => {
-    console.log( 'in runThis');
+  const markFavorite = (event) => {
+    console.log( 'this is the URL', event.target.id );
+    
+    
+    // axios.post(`api/favorite`, ).then((response))
+  }
+
+  const selectFavGif = () => {
+
   }
 
   return (
+
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
-          height="140"
+          height="300"
           image={ gif.images.original.url }
           title="Contemplative Reptile"
         />
-        <CardContent>
+        {/* <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             Lizard
           </Typography>
@@ -46,15 +67,15 @@ export default function ImgMediaCard({gif}) {
             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
             across all continents except Antarctica
           </Typography>
-        </CardContent>
+        </CardContent> */}
       </CardActionArea>
-      <CardActions>
+      <CardActions className={classes.buttonContainer}>
         <Button size="small" color="primary">
           Share
         </Button>
 
-        <IconButton onClick={ runThis }>
-          <StarIcon  className="e-card-btn" />
+        <IconButton onClick={ markFavorite }>
+          <StarIcon id={ gif.images.original.url } className={classes.star} />
         </IconButton>
 
         
