@@ -2,6 +2,7 @@ import {useState} from 'react';
 import './Home.css';
 import {useSelector, useDispatch } from 'react-redux';
 import Card from '../Card/Card';
+import Favorites from '../Favorites/Favorites'
 
 const Home = () => {
     

@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import Home from '../Home/Home';
+import Favorites from '../Favorites/Favorites';
+import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 
-function App(props) {
+function App() {
 
   const dispatch = useDispatch();
   const gifs = useSelector(store => store.gifs);
@@ -25,7 +27,17 @@ function App(props) {
 
   return (
     <div>
-      <Home />
+      <Router>
+
+        <Route>
+          <Home />
+        </Route>
+
+        <Route>
+          <Favorites />
+        </Route>
+
+      </Router>
     </div>
   );
 }
