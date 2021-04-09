@@ -35,24 +35,32 @@ export default function ImgMediaCard({gif}) {
 
   const classes = useStyles();
   const ourGifs = useSelector(store => store.gifs);
-
-  const [favorite, setFavorite] = useState([]);
+  const dispatch = useDispatch();
+  const favorites = useSelector((store) => store.favorites);
+  // const [favorite, setFavorite] = useState({});
   
   const markFavorite = ( ) => {
+
     let gifUrl = gif.images.original.url 
-    console.log( 'in markFavorite url:', gifUrl );
+
+    let newFavorite = {
+      url: gifUrl,
+      favorite: true,
+    }
     
     // setFavorite( {
     //   url: gifUrl,
     //   favorite: true,
-    // })
+    // })  
 
-    // console.log( 'after setFavorite:', favorite );
+    dispatch({ type: 'NEW_FAVORITE', payload: newFavorite })
     
-    // axios.post(`api/favorite`, ).then((response))
-  }
+    axios.post('/api/favorite', newFavorite ).then((response) => {
 
-  // console.log('favorite item', favorite);
+    }).catch(error => {
+      console.log('error in POST', error);
+    })
+  }
 
   return (
 

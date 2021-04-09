@@ -20,10 +20,21 @@ const gifs = ( state = [], action ) => {
     return state;
 }
 
+const favorites = ( state = '', action ) => {
+    
+    if(action.type === 'NEW_FAVORITE') {
+        return action.payload;
+        // return [...state, action.payload ];
+    }
+
+    return state;
+}
+
+
 const store = createStore(
     combineReducers({
     gifs,
-
+    favorites,
     }),
     applyMiddleware(sagaMiddleware, logger),
 );
