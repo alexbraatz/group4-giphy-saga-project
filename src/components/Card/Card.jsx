@@ -32,21 +32,27 @@ const useStyles = makeStyles({
 });
 
 export default function ImgMediaCard({gif}) {
+
   const classes = useStyles();
   const ourGifs = useSelector(store => store.gifs);
-  
-  
 
-  const markFavorite = (event) => {
-    console.log( 'this is the URL', event.target.id );
+  const [favorite, setFavorite] = useState([]);
+  
+  const markFavorite = ( ) => {
+    let gifUrl = gif.images.original.url 
+    console.log( 'in markFavorite url:', gifUrl );
     
+    // setFavorite( {
+    //   url: gifUrl,
+    //   favorite: true,
+    // })
+
+    // console.log( 'after setFavorite:', favorite );
     
     // axios.post(`api/favorite`, ).then((response))
   }
 
-  const selectFavGif = () => {
-
-  }
+  // console.log('favorite item', favorite);
 
   return (
 
@@ -74,12 +80,12 @@ export default function ImgMediaCard({gif}) {
           Share
         </Button>
 
-        <IconButton onClick={ markFavorite }>
+        <IconButton onClick={ (event) => markFavorite( ) }>
           <StarIcon id={ gif.images.original.url } className={classes.star} />
         </IconButton>
 
-        
       </CardActions>
     </Card>
   );
 }
+
