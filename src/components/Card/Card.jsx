@@ -8,6 +8,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import StarIcon from '@material-ui/icons/Star';
+import IconButton from '@material-ui/core/IconButton';
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -20,6 +23,10 @@ const useStyles = makeStyles({
 export default function ImgMediaCard({gif}) {
   const classes = useStyles();
   const ourGifs = useSelector(store => store.gifs);
+
+  const runThis = () => {
+    console.log( 'in runThis');
+  }
 
   return (
     <Card className={classes.root}>
@@ -45,9 +52,12 @@ export default function ImgMediaCard({gif}) {
         <Button size="small" color="primary">
           Share
         </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+
+        <IconButton onClick={ runThis }>
+          <StarIcon  className="e-card-btn" />
+        </IconButton>
+
+        
       </CardActions>
     </Card>
   );
